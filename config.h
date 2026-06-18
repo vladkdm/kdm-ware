@@ -23,4 +23,16 @@ namespace Config {
             inline float snapline_color[4] = { 1.f, 1.f, 1.f, 1.f };
         }
     }
+
+    namespace Misc {
+        namespace Radar {
+            inline bool enable = false;
+            inline bool show_enemies = true;
+            inline bool show_weapons = true;
+            inline bool show_line_of_sight = false;
+            inline float size = 200.f;
+            inline float scale = 1.f;
+            inline float alpha = 0.8f;
+        }
+    }
 }

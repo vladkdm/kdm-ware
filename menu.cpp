@@ -13,6 +13,10 @@ void Menu::Render() {
             RenderVisualsTab();
             ImGui::EndTabItem();
         }
+        if (ImGui::BeginTabItem("Misc")) {
+            RenderMiscTab();
+            ImGui::EndTabItem();
+        }
         ImGui::EndTabBar();
     }
 
@@ -40,4 +44,24 @@ void Menu::RenderPlayerSubTab() {
         const char* units[] = { "Meters", "Feet", "Game Units" };
         ImGui::Combo("Unit", &Config::Visuals::Player::unit, units, 3);
     }
+}
+
+void Menu::RenderMiscTab() {
+    if (ImGui::BeginTabBar("MiscSubTabs")) {
+        if (ImGui::BeginTabItem("Radar")) {
+            RenderRadarSubTab();
+            ImGui::EndTabItem();
+        }
+        ImGui::EndTabBar();
+    }
+}
+
+void Menu::RenderRadarSubTab() {
+    ImGui::Checkbox("Enable", &Config::Misc::Radar::enable);
+    ImGui::Checkbox("Show enemies", &Config::Misc::Radar::show_enemies);
+    ImGui::Checkbox("Show weapons", &Config::Misc::Radar::show_weapons);
+    ImGui::Checkbox("Show line of sight", &Config::Misc::Radar::show_line_of_sight);
+    ImGui::SliderFloat("Size", &Config::Misc::Radar::size, 100.f, 400.f, "%.0f");
+    ImGui::SliderFloat("Scale", &Config::Misc::Radar::scale, 0.2f, 3.f, "%.1f");
+    ImGui::SliderFloat("Alpha", &Config::Misc::Radar::alpha, 0.f, 1.f, "%.2f");
 }

@@ -7,6 +7,7 @@
 #include "backends/imgui_impl_dx11.h"
 #include "menu.h"
 #include "visuals.h"
+#include "radar.h"
 #include "config.h"
 
 #pragma comment(lib, "d3d11.lib")
@@ -94,6 +95,9 @@ static HRESULT __stdcall Present_hook(IDXGISwapChain* swapchain, UINT sync, UINT
 
         Visuals visuals;
         visuals.Render();
+
+        Radar radar;
+        radar.Render();
 
         ImGui::EndFrame();
         ImGui::Render();
