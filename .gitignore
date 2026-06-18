@@ -1,0 +1,19 @@
+# Build output
+build/*.obj
+build/*.dll
+build/*.pdb
+build/*.exp
+build/*.lib
+
+# VS
+.vs/
+*.sln
+*.vcxproj*
+*.user
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Temp
+*.tmp
